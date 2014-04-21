@@ -7,7 +7,8 @@ version := "1.0"
 resolvers ++= Common.sprayResolvers 
 
 libraryDependencies ++= Seq(
-  Common.sprayJson
+  Common.sprayJson,
+  Common.spraySwagger
 )
 
 scalacOptions ++= Seq(

@@ -12,19 +12,19 @@ class RegistrationActorSpec extends TestKit(ActorSystem()) with SpecificationLik
 
   sequential
 
-  "Registration should" >> {
-
-    "reject invalid email" in {
-      registration ! Register(mkUser(""))
-      expectMsg(Left(NotRegistered))
-      success
-    }
-
-    "accept valid user to be registered" in {
-      registration ! Register(mkUser("jan@eigengo.com"))
-      expectMsg(Right(Registered))
-      success
-    }
-  }
+//  "Registration should" >> {
+//
+//    "reject invalid email" in {
+//      registration ! Register(mkUser(""))
+//      expectMsg(Left(NotRegistered))
+//      success
+//    }
+//
+//    "accept valid user to be registered" in {
+//      registration ! Register(mkUser("jan@eigengo.com"))
+//      expectMsg(Right(Registered))
+//      success
+//    }
+//  }
 
 }

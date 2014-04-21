@@ -15,6 +15,7 @@ import spray.httpx.SprayJsonSupport
 import spray.client.pipelining._
 import SprayJsonSupport._
 import java.util.UUID
+import apiPaths._
 
 
 trait DataManagerApiClient {
@@ -35,14 +36,14 @@ class DataManagerRestClient(implicit val bindingModule: BindingModule) extends D
   val registerPipeline = sendReceive ~> unmarshal[RegistrationResponse]
   val validatePipeline = sendReceive ~> unmarshal[RegistrationValidationResponse]
 
-  override def register(request: RegistrationRequest): Future[RegistrationResponse] = registerPipeline { Post(apiBaseUri + "/register", request) }
+  override def register(request: RegistrationRequest): Future[RegistrationResponse] = registerPipeline { Post(s"$apiBaseUri/$PATH_REGISTER", request) }
 
-  override def validateRegistration(validation: RegistrationValidation): Future[RegistrationValidationResponse] = validatePipeline { Post(apiBaseUri + "/validateRegistration", validation) }
+  override def validateRegistration(validation: RegistrationValidation): Future[RegistrationValidationResponse] = validatePipeline { Post(s"$apiBaseUri/$PATH_VALIDATE_REGISTRATION_FULL", validation) }
 }
 
 class DataManagerMockClient extends DataManagerApiClient{
   override def validateRegistration(validation: RegistrationValidation): Future[RegistrationValidationResponse] =
-    Future.successful( RegistrationValidationResponse(validation.applicationId, UUID.randomUUID()) )
+    Future.successful( RegistrationValidationResponse(validation.applicationId, "", UUID.randomUUID()) )
 
   override def register(request: RegistrationRequest): Future[RegistrationResponse] =
     request match {

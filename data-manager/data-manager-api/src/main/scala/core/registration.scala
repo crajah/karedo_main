@@ -78,7 +78,7 @@ class RegistrationActor extends Actor{
   }
 
   def validateUser(validation: RegistrationValidation) : Future[Either[RegistrationError, RegistrationValidationResponse]] = async {
-    Right(RegistrationValidationResponse(validation.applicationId, UUID.randomUUID()))
+    Right(RegistrationValidationResponse(validation.applicationId, "", UUID.randomUUID()))
   }
 
 }

@@ -13,8 +13,8 @@ object Common {
 
   val sl4jVersion = "1.7.5"
 
-  val sprayVersion = "1.2-20130712"
-  val sprayJsonVersion = "1.2.3"
+  val sprayVersion = "1.2.1"
+  val sprayJsonVersion = "1.2.6"
 
   val sprayResolvers = Seq (
     "spray repo" at "http://repo.spray.io",
@@ -25,7 +25,8 @@ object Common {
 
   val specs2 = "org.specs2" %% "specs2" % "1.14"
   val sprayJson = "io.spray" %% "spray-json" % sprayJsonVersion
-  val sprayClient = "io.spray" % "spray-client" % sprayVersion
   val subcutExt = "com.pragmasoft" % "subcut_ext" % "2.0"
   val scalaAsync = "org.scala-lang.modules" %% "scala-async" % "0.9.0"
+  val sprayClient = "io.spray" % "spray-client" % sprayVersion
+  val spraySwagger = "com.gettyimages" % "spray-swagger_2.10" % "0.2.4" //exclude ("com.typesafe.sbt", "sbt-pgp") exclude("com.typesafe.akka", "akka-actor")
 }

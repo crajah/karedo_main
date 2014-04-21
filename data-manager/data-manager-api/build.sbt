@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "io.spray"            % "spray-routing"    % Common.sprayVersion,
   Common.sprayJson,
   Common.scalaAsync,
+  Common.spraySwagger,
   Common.specs2 % "test",
   "io.spray"            % "spray-testkit"    % Common.sprayVersion    % "test",
   "com.typesafe.akka"  %% "akka-testkit"     % Common.akkaVersion     % "test",

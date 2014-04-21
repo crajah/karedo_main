@@ -10,10 +10,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "bootstrap" % "2.3.1",
   Common.sprayClient,
   Common.subcutExt
-  // Add your own project dependencies in the form:
-  // "group" % "artifact" % "version"
 )
-
 
 resolvers ++= Common.sprayResolvers
 

@@ -134,7 +134,7 @@ trait RegistrationController extends Controller {
           case _ => InternalServerError(unsuccessfulResponse.responseStatus.toString)
         }
       }
-    case exception => Future.successful(InternalServerError(exception.toString))
+    case exception => Future.successful(InternalServerError(s"Error serving request '${exception.toString}'"))
   }
 
   def editProfile = async {
