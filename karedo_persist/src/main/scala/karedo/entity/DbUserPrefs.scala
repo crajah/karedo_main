@@ -15,7 +15,13 @@ case class UserPref
   , value: Double
 )
 */
-case class UserPrefData(value: Double, name: String, order: Int, include:Boolean = true)
+case class UserPrefData
+(
+  value: Double
+  , name: String
+  , order: Int
+  , include:Boolean = true
+)
 
 case class UserPrefs
 (

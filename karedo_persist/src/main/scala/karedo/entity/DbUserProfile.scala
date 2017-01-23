@@ -30,3 +30,4 @@ case class UserProfile
 ) extends Keyable[String]
 
 trait DbUserProfile extends DbMongoDAO1[String,UserProfile]
+

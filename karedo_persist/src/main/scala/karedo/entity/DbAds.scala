@@ -30,6 +30,7 @@ case class Ads(
               @Key("_id") id: String,
               ads: List[Ad]
               ) extends Keyable[String]
+
 case class Ad(
              ad_id: String = UUID.randomUUID().toString,
                 ad_type: String = "IMAGE",
