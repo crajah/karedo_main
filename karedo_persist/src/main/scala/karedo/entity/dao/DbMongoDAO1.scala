@@ -10,10 +10,6 @@ import salat.global._
 import scala.util.{Failure, Success, Try}
 
 
-object DbMongoDAO1 {
-  var tablePrefix = "K1_"
-}
-
 abstract class DbMongoDAO1[K, T <: Keyable[K]]
 (implicit
  val manifestT: Manifest[T]
@@ -34,7 +30,7 @@ abstract class DbMongoDAO1[K, T <: Keyable[K]]
   val logger = LoggerFactory.getLogger(thisClass)
   //logger.debug(s"setting up $thisClass")
 
-  lazy val dao = new SalatDAO[T, K](collection = db(s"${DbMongoDAO1.tablePrefix}$simpleName")) {}
+  lazy val dao = new SalatDAO[T, K](collection = db(s"${DbDAO.tablePrefix}$simpleName")) {}
 
   override def insertNew(r: T): Result[String, T] = {
     val id = r.id

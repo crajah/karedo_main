@@ -2,7 +2,7 @@ package utils
 
 import java.util.UUID
 
-import karedo.entity.dao.DbMongoDAO1$
+import karedo.entity.dao.DbMongoDAO1
 import karedo.util.{Configurable, KO, OK}
 import org.specs2.matcher.Matcher
 import org.specs2.mutable.Specification

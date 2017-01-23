@@ -8,10 +8,6 @@ import spray.json.{DefaultJsonProtocol, RootJsonFormat}
 /**
   * Created by charaj on 12/01/2017.
   */
-object DbMongoDAO2 {
-  val tablePrefix = "K2_"
-}
-
 abstract class DbMongoDAO2[K, T <: Keyable[K]] (implicit val manifestT: Manifest[T], val manifestK: Manifest[K])
   extends DbDAO[K, T]
     with DbDAOExtensions[K, T]
@@ -22,13 +18,9 @@ abstract class DbMongoDAO2[K, T <: Keyable[K]] (implicit val manifestT: Manifest
   val logger = LoggerFactory.getLogger(thisClass)
   //logger.debug(s"setting up $thisClass")
 
-  lazy val collection = db.getCollection(s"${DbMongoDAO1.tablePrefix}$simpleName")
+  lazy val collection = db.getCollection(s"${DbDAO.tablePrefix}$simpleName")
 
-  override def insertNew(r:T): Result[String,T] = {
-
-    collection.insertOne(Document(""))
-    KO("Not Implemented")
-  }
+  override def insertNew(r:T): Result[String,T] = {KO("Not Implemented")}
 
   override def find(id:K): Result[String,T] = {KO("Not Implemented")}
 
